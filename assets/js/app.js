@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import ImageContextProvider from "./contexts/ImageContext";
-import ImageCards from "./components/ImageCards";
+import ImgurContext from "./contexts/ImgurContext";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 
+import '../css/app.css'; // here is where the magic happens
+
 class App extends Component {
   render() {
     return (
-      <ImageContextProvider>
-        <ImageCards />
-      </ImageContextProvider>
+      <Container>
+        <CssBaseline />
+        <ImgurContext />
+      </Container>
     );
   }
 }

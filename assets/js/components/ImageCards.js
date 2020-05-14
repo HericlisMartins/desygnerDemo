@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { ImageContext } from "../contexts/ImageContext";
+import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -11,40 +10,34 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
-  root: { maxWidth: 250, display:"-webkit-inline-box", margin:"0.3rem" },
+  root: { maxWidth: 250, minWidth:250, margin: "0.3rem", display: "inline-block" },
   media: { height: 250 },
 });
 
-export default function ImageCards() {
+export default function ImageCards(props) {
   const classes = useStyles();
-  const context = useContext(ImageContext);
-
-  return context.imgs.map((img) => (
-            <Card className={classes.root} variant="outlined" key={img.id}>
-                <CardActionArea>
-                    <CardMedia
-                    className={classes.media}
-                    image={img.url}
-                    title="placeholder"
-                    />
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {img.title}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {img.description}
-                    </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <Button size="small" color="primary">
-                    Add
-                    </Button>
-
-                    <Button size="small" color="primary">
-                    Remove
-                    </Button>
-                </CardActions>
-            </Card>
-        ));
+  return (
+    <Card className={classes.root} variant="outlined">
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={props.url}
+          title="placeholder"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {props.title}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {props.description}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Add
+        </Button>
+      </CardActions>
+    </Card>
+  );
 }
