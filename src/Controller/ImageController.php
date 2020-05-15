@@ -59,10 +59,10 @@ class ImageController extends AbstractController
      */
     public function InsertLibrary(Request $request)
     {
-        
-        if($request->headers->get('Content-Type')!="application/json")
+        if( ($request->headers->get('Content-Type')!="application/json") &&
+           ( $request->headers->get('Content-Type')!="application/json;charset=UTF-8"))
             return $this->json([
-                'message' => ['text' => "Invalid Content Type, please submit in json", 'level' => 'error'],
+                'message' => ['text' =>"Invalid type".$request->headers->get('Content-Type'), 'level' => 'error'],
             ]);
 
         $content = json_decode($request->getContent());
