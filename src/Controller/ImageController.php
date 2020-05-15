@@ -1,13 +1,13 @@
 <?php
-
 namespace App\Controller;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
 use Symfony\Component\Routing\Annotation\Route;
-
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Dotenv\Dotenv;
+
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__.'\..\..\.env.desygner');
 
 /**
  * @Route("/api/image", name="image")
@@ -17,13 +17,14 @@ class ImageController extends AbstractController
 
     private function ImgurHelper($keyword)
     {
+        $clienId=$_ENV['IMGUR_CLIENTID'];
         $client = HttpClient::create();
         $response = $client->request(
             'GET',
             'https://api.imgur.com/3/gallery/search/',
             [
                 'query' => ['q' => $keyword],
-                'headers' => ['Authorization' => 'Client-ID 597bbf0bc309cca']
+                'headers' => ['Authorization' => 'Client-ID '.$clienId]
             ]
         );
 
@@ -51,7 +52,10 @@ class ImageController extends AbstractController
                 $image = $gallery['images'][0];
                 if ($image["type"] == "image/jpeg") {
                     $description = substr($image['description'], 0, 30);
-                    $array_response[] = array("title" => $gallery['title'], "description" => $description, "url" => $image['link']);
+                    $title = substr($gallery['title'], 0, 10);
+                    $description = ($description==null)?$keyword:$description;
+                    $title = ($title==null)?$keyword:$title;
+                    $array_response[] = array("title" => $title, "description" => $description, "url" => $image['link']);
                 }
             }
 
