@@ -27,6 +27,9 @@ $dotenv->load(__DIR__ . '\..\..\.env.desygner');
  */
 class ImageController extends AbstractController
 {
+    private $entityManager;
+    private $ImgRepository;
+
     public function __construct(EntityManagerInterface $entityManager, ImageRepository $ImgRepository)
     {
         $this->entityManager = $entityManager;
@@ -112,7 +115,15 @@ class ImageController extends AbstractController
             $arrayOfimgs[] = $img->imageToArray();
         }
 
-        return $this->json($arrayOfimgs);
+        //test
+        $response = new Response(
+            json_encode($arrayOfimgs),
+            Response::HTTP_OK,
+            //['content-type' => 'text/html'] //test fail
+            ['content-type' => 'application/json']
+        );
+        
+        return $response;
     }
 
     /**
