@@ -8,11 +8,22 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 
-const useStyles = makeStyles({
-  root: { maxWidth: 250, minWidth:250, margin: "0.5rem", display: "inline-block" },
-  media: { height: 250 },
-});
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: 250,
+    minWidth: 250,
+    margin: "0.5rem",
+    display: "inline-block",
+  },
+  media: {
+    height: 250,
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
 
 export default function ImageCards(props) {
   const classes = useStyles();
@@ -34,8 +45,13 @@ export default function ImageCards(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Add
+        <Button
+          variant="contained"
+          color="default"
+          className={classes.button}
+          startIcon={<LibraryAddIcon />}
+        >
+          Add Into Library
         </Button>
       </CardActions>
     </Card>
