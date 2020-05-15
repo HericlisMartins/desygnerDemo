@@ -92,9 +92,9 @@ class Image
     public function imageToArray()
     {
         return [
-            'id' => $this->id,
+            'url' => $this->url,
             'title' => $this->title,
-            'url' => $this->url
+            'description' => $this->description
         ];
     }
 }
