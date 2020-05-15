@@ -2,6 +2,8 @@ body {
     background-color: lightgray;
 }
 .ImageCardsDiv{
+    background-color: azure;
     display: -webkit-inline-box;
     width: 100%;
+    text-align: center;
 }
