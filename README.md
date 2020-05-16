@@ -53,6 +53,8 @@ yarn install /*React.js*/
 yarn encore dev-server /* Auto load the front end into the broweser when you change the files*/
 yarn encore dev --watch /* You will have to manually update the page to see the changes*/
 
+/* I detected that the ImgUR  blocks the request from the IP numbers like 127.0.0.1 So to use the images show correctly you need to access from a virtual DNS name like localhost:8000 */
+
 @Symfony Microservice API.
 
 [API endpoints]
