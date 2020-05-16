@@ -1,29 +1,76 @@
-# desygnerDemo
-A simple demonstration for my interview with Desygner
+             ,----------------,              ,---------,
+        ,-----------------------,          ,"        ,"|
+      ,"                      ,"|        ,"        ,"  |
+     +-----------------------+  |      ,"        ,"    |
+     |  .-----------------.  |  |     +---------+      |
+     |  |                 |  |  |     | -==----'|      |
+     |  |  I LOVE DOS!    |  |  |     |         |      |
+     |  |  Bad command or |  |  |/----|`---=    |      |
+     |  |  C:\>_          |  |  |   ,/|==== ooo |      ;
+     |  |                 |  |  |  // |(((( [33]|    ,"
+     |  `-----------------'  |," .;'| |((((     |  ,"
+     +-----------------------+  ;;  | |         |,"     -Hericlis-
+        /_)______________(_/  //'   | +---------+
+   ___________________________/___  `,
+  /  oooooooooooooooo  .o.  oooo /,   \,"-----------
+ / ==ooooooooooooooo==.o.  ooo= //   ,`\--{)B     ,"
+/_==__==========__==_ooo__ooo=_/'   /___________,"
+`-----------------------------'
 
-[TODO]
+#Desygner Demonstration by. Hericlis Martins
 
-- Install Symfony PHP framework and configure best-pratices. 
+This demonstration use the <a href="https://api.imgur.com/">ImgUR API</a> to search images and later save into a database.
 
-- Use the Symfony webpack encore to enable the React.js
+@Tech specifications
 
-- Create a endpoint that returns formated data provided from a ImgUR.
-
-- Show the images from the getdata API into the front-end (React.js using the material-ui)
-
-- Create action ADD into the front-end sends data to the Symfony API. 
-
-- Use the Symfony Entity and the Doctrine ORM to setup into the a MySQL schemma (localhost.image)
-
-- Create a Route to add data into the (localhost.image) entity.
-
-- Create a route (get_liberary_Images) to show the images from the DB (liberary)
-
-- Front-end fetch data from get_liberary_Images endpoint
-
-
-[Used Technologies]
+[Technologies]
 - PHP 7.4
 - MySQL
-- Symfony 5 (Web-pack, Doctrine ORM)
-- React.js (material-ui)
+- Symfony 5 (Web-pack, Doctrine ORM, Annotations)
+- React.js (Material-ui)
+
+[Install]
+- Have the PHP installed and working well. Please, follow this instructions at Symfony page https://symfony.com/doc/current/setup.html#technical-requirements
+
+- Have a Database which you most like.
+/* You can choose the database that you prefer, the Docrine ORM care about the migration look at https://symfony.com/doc/current/doctrine.html */  
+
+- Clone this repository, and use the command "symfony check:requirements" if needs, install the PHP extentions missing.
+
+- Config the .env files, you could create a .env.local to config your local database. /* Look at: https://symfony.com/doc/current/configuration.html#selecting-the-active-environment */
+(The file .env.desygner is the file which have the IMGUR CLIENTID API, it is my clientID. ) /*I'm not sure if this still working, if needs please register a new code here https://api.imgur.com/oauth2/addclient */
+
+
+- Install all dependencies 
+composer install /*Symfony*/
+yarn install /*React.js*/
+
+@Start coding
+
+- Start the symfony server /* symfony server:start*/\
+
+- Compile the React javascript file using the WebPack server 
+yarn encode dev-server /* Auto load the front end into the broweser when you change the files*/
+yarn encode dev --watch /* You will have to manually update the page to see the changes*/
+
+@Symfony Microservice API.
+
+[API endpoints]
+
+/api/image/InsertLibrary 
+Method: POST 
+Param: Json {"url":"", "title":"", "description":""}
+Return: 'message' => ['text' => '', 'level' => '']
+Description: Insert this JSON into the DB, It is validate using the Symfony Form Component. /* ./Form/ImageType.php */
+
+/api/image/readLibrary
+Method: GET 
+Param: null
+Return: 'message' => ['text' => '', 'level' => '']
+Description: Return the data from DB
+
+/api/image/imgur/{max}/{keyword}
+Method: GET 
+Param: Max=number of images, Keyword= word to search
+Return: 'message' => ['text' => '', 'level' => '']
+Description: Return the data from ImgUR
