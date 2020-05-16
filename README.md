@@ -12,14 +12,14 @@
      +-----------------------+  ;;  | |         |,"     -Hericlis-
         /_)______________(_/  //'   | +---------+
    ___________________________/___  `,
-  /  oooooooooooooooo  .o.  oooo /,   \,"-----------
- / ==ooooooooooooooo==.o.  ooo= //   ,`\--{)B     ,"
-/_==__==========__==_ooo__ooo=_/'   /___________,"
-`-----------------------------'
+  /  oooooooooooooooo  .o.  oooo /    \,"-----------
+ / ==ooooooooooooooo==.o.  ooo= //    ,`\--{)B     ,"
+/_==__==========__==_ooo__ooo=_/'     /___________,"
+`-----------------------------' 
 
 #Desygner Demonstration by. Hericlis Martins
 
-This demonstration use the <a href="https://api.imgur.com/">ImgUR API</a> to search images and later save into a database.
+> This demonstration use the <a href="https://api.imgur.com/">ImgUR API</a> to search images and later save into a database. <
 
 @Tech specifications
 
@@ -60,7 +60,7 @@ yarn encore dev --watch /* You will have to manually update the page to see the 
 [API endpoints]
 
 /api/image/InsertLibrary 
-Method: POST 
+Method: POST
 Param: Json {"url":"", "title":"", "description":""}
 Return: 'message' => ['text' => '', 'level' => '']
 Description: Insert this JSON into the DB, It is validate using the Symfony Form Component. /* ./Form/ImageType.php */
