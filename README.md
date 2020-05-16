@@ -50,8 +50,8 @@ yarn install /*React.js*/
 - Start the symfony server /* symfony server:start*/\
 
 - Compile the React javascript file using the WebPack server 
-yarn encode dev-server /* Auto load the front end into the broweser when you change the files*/
-yarn encode dev --watch /* You will have to manually update the page to see the changes*/
+yarn encore dev-server /* Auto load the front end into the broweser when you change the files*/
+yarn encore dev --watch /* You will have to manually update the page to see the changes*/
 
 @Symfony Microservice API.
 
