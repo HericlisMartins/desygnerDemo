@@ -82,7 +82,8 @@ In order to learn how to use the symfony framework, I performed a single unit te
 
 **Start the test**:` php ./bin/phpunit ./tests/ImageTest.php`
 
-**Faking a failure: ** There are two assertions response in this test model.
+**Faking a failure:** 
+There are two assertions response in this test model.
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertEquals("application/json", $headers["content-type"][0]);
@@ -112,9 +113,9 @@ On the other hand I really enjoyed working with @Symfony, and I will probably us
 
 #### References:
 
-https://symfony.com/
-https://phpunit.readthedocs.io/en/9.1/
-https://api.imgur.com/
-https://reactjs.org/
-https://webpack.js.org/
+- https://symfony.com/
+- https://phpunit.readthedocs.io/en/9.1/
+- https://api.imgur.com/
+- https://reactjs.org/
+- https://webpack.js.org/
 
