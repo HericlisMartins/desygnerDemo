@@ -19,7 +19,7 @@
 
 #Desygner Demonstration by. Hericlis Martins
 
-> This demonstration use the <a href="https://api.imgur.com/">ImgUR API</a> to search images and later save into a database. <
+> This demonstration use the <a href="https://api.imgur.com/">ImgUR API</a> to search images and later save into a database.
 
 @Tech specifications
 
@@ -59,20 +59,20 @@ yarn encore dev --watch /* You will have to manually update the page to see the 
 
 [API endpoints]
 
-/api/image/InsertLibrary 
-Method: POST
-Param: Json {"url":"", "title":"", "description":""}
-Return: 'message' => ['text' => '', 'level' => '']
-Description: Insert this JSON into the DB, It is validate using the Symfony Form Component. /* ./Form/ImageType.php */
+- /api/image/InsertLibrary 
+- Method: POST
+- Param: Json {"url":"", "title":"", "description":""}
+- Return: 'message' => ['text' => '', 'level' => '']
+- Description: Insert this JSON into the DB, It is validate using the Symfony Form Component. /* ./Form/ImageType.php */
 
-/api/image/readLibrary
-Method: GET 
-Param: null
-Return: 'message' => ['text' => '', 'level' => '']
-Description: Return the data from DB
+- /api/image/readLibrary
+- Method: GET 
+- Param: null
+- Return: 'message' => ['text' => '', 'level' => '']
+- Description: Return the data from DB
 
-/api/image/imgur/{max}/{keyword}
-Method: GET 
-Param: Max=number of images, Keyword= word to search
-Return: 'message' => ['text' => '', 'level' => '']
-Description: Return the data from ImgUR
+- /api/image/imgur/{max}/{keyword}
+- Method: GET 
+- Param: Max=number of images, Keyword= word to search
+- Return: 'message' => ['text' => '', 'level' => '']
+- Description: Return the data from ImgUR
