@@ -14,7 +14,7 @@ This demonstration use the <a href="https://api.imgur.com/">ImgUR API</a> to sea
 
 #### How to:
 
-#####[Install]
+##### [Install]
 
 - Have the PHP installed and working well. Please, follow this instructions at Symfony page https://symfony.com/doc/current/setup.html#technical-requirements
 
@@ -64,7 +64,7 @@ This demonstration use the <a href="https://api.imgur.com/">ImgUR API</a> to sea
 	Return: 'message' => ['text' => '', 'level' => '']
 	Description: Return the data from DB
 
-** /api/image/imgur/{max}/{keyword}**
+**/api/image/imgur/{max}/{keyword}**
 
 	Method: GET 
 	Param: Max=number of images, Keyword= word to search
