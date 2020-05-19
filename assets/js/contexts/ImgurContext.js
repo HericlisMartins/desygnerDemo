@@ -17,7 +17,7 @@ class ImgurContextProvider extends Component {
 
   getImgur(keyword) {
     axios
-      .get("/api/image/imgur/12/" + keyword)
+      .get("/api/image/imgur/12/-1/" + keyword)
       .then((response) => {
         this.setState({ imgs: response.data });
         this.setState({ dataFromLibrary: true });
