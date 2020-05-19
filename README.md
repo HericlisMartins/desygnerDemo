@@ -5,7 +5,7 @@
 This demonstration use the <a href="https://api.imgur.com/">ImgUR API</a> to search images and later save into a database.
 
 ------------
-####News Features:
+#### News Features:
 
 **APCU Cache:**
 I have implemented the cache using the APCU extention, using the Component Cache\Adapter\ApcuAdapter from symfony. *
@@ -95,10 +95,10 @@ Now the keyword received into the API endpoint */api/image/imgur/* is valitating
 	Return: 'message' => ['text' => '', 'level' => '']
 	Description: Return the data from DB
 
-**/api/image/imgur/{max}/{keyword}**
+**/api/image/imgur/{max}/{cache state}/{keyword}**
 
 	Method: GET 
-	Param: Max=number of images, Keyword= word to search
+	Param: Max=number of images, Keyword= word to search, Cache State
 	Return: 'message' => ['text' => '', 'level' => '']
 	Description: Return the data from ImgUR
 
