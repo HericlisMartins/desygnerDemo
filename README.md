@@ -4,12 +4,43 @@
 ------------
 This demonstration use the <a href="https://api.imgur.com/">ImgUR API</a> to search images and later save into a database.
 
+------------
+####News Features:
+
+**APCU Cache:**
+I have implemented the cache using the APCU extention, using the Component Cache\Adapter\ApcuAdapter from symfony. *
+> Now it is impresendive do you include and enable the APCU extention in your PHP.  Have a look at: https://www.php.net/manual/en/apcu.installation.php
+
+Commit reference: [#cca03cb](https://github.com/HericlisMartins/desygnerDemo/commit/cca03cb9df557c96b81759d3c1f42af9784d1e04 "#cca03cb")
+
+**New endpoint of the ImageUR API:**
+
+	/api/image/imgur/{*maxofImgs*}/**{cache state}**/{*keyword*}
+
+**Cache states:**
+
+		1 - Not use at all
+		0  - Try to get from cache if not exists get the imgur json and save
+		1  - Only accepts values from the cache.
+
+
+**Validation:**
+Now the keyword received into the API endpoint */api/image/imgur/* is valitating using the Symfony\Component\Validator\ 
+
+**Commit reference:** [#3fd1067](https://github.com/HericlisMartins/desygnerDemo/commit/3fd1067977f47d43123c4ecd3391b0158a9778c5 "#3fd1067")
+
+**Validation constraints:**
+- Regex  (https://symfony.com/doc/current/reference/constraints/Regex.html)
+- Length (https://symfony.com/doc/current/reference/constraints/Length.html)
+
+
+------------
 
 #### Tech specifications:
 
 - PHP 7.4
 - MySQL
-- Symfony 5 (Web-pack, Doctrine ORM, Annotations)
+- Symfony 5
 - React.js (Material-ui)
 
 #### How to:
@@ -108,8 +139,9 @@ On the other hand I really enjoyed working with @Symfony, and I will probably us
 
 **Improvements**:
 
-- front-end needs to improve creating alerts and notifications with the material-ui.
-- Back-end implement a Cache to the ImgUR returns.
+- ~~Back-end implement a Cache to the ImgUR returns.~~
+- Front-end (Create the controllers to interact with the cache, create alerts from return)
+
 
 #### References:
 
